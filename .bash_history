@@ -79,3 +79,21 @@ find /home/marina -maxdepth 1 -type f -exec cp -f {} /home/marina/ada-myk/ \;
 ls
 cd ada-myk
 ls
+find /home/marina -maxdepth 1 -type f -exec cp -f {} /home/marina/ada-myk/ \;
+git init
+git add .
+git commit -m "Update README"
+git push origin main
+ls
+rm -rd role.tf
+rm -rf role.tf
+rm -rf namespace.tf
+terraform init
+vi aks.tf
+git add .
+git commit -m "Remove namespace.tf and role.tf"
+git push origin main
+terraform init
+terraform validate
+terraform plan -out=tfplan
+terraform apply "tfplan"

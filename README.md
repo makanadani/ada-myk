@@ -2,9 +2,10 @@
 
 *ROTEIRO: [*Projeto*](./projeto_modulo.md)*
 
-# DESAFIO: Deploy de Infraestrutura para Aplicação em Kubernetes com Terraform. 
-
 ## Ada | Embarque TI | Serviços para Desenvolvedores
+
+# DESAFIO
+## Deploy de Infraestrutura para Aplicação em Kubernetes com Terraform 
 
 ### Introdução
 Este documento descreve a infraestrutura implementada utilizando **Terraform** para provisionamento de recursos no **Microsoft Azure** e **Kubernetes** para a implantação de uma aplicação conteinerizada. 
@@ -13,7 +14,7 @@ Este documento descreve a infraestrutura implementada utilizando **Terraform** p
 A infraestrutura está organizada em diversos arquivos visando implementação via Terraform:
 
 1. **Ambiente**
-
+- `application.spd`: Arquivos e diretórios necessários para construir, configurar e executar a **aplicação**.
 - `ada-azure-project-2025-01.sln`: Arquivo de solução do **Microsoft Visual Studio** para compilação da aplicação.
 - `aks.tf`: Provisiona o cluster **Azure Kubernetes Service (AKS)**, incluindo **namespace** dedicado à aplicação.
 - `application.spd-dockerfile`: **Dockerfile** para criar a imagem da aplicação.
