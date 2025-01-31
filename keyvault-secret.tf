@@ -5,7 +5,7 @@ resource "kubernetes_secret" "keyvault_secret" {
   }
 
   data = {
-    SPD_KEY_VAULT_URI = "https://kv-ada-myk.vault.azure.net/"
+    SPD_KEY_VAULT_URI = azurerm_key_vault.keyvault.vault_uri
   }
 
   type = "Opaque"
