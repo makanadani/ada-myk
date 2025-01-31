@@ -10,10 +10,34 @@ variable "resource_group_location" {
   default     = "Brazil South"
 }
 
+variable "aks_cluster_name" {
+  description = "Name of the Azure Kubernetes Service (AKS) cluster"
+  type        = string
+  default     = "aks-ada-myk"
+}
+
+variable "dns_prefix" {
+  description = "DNS prefix for the Kubernetes cluster"
+  type        = string
+  default     = "k8s"
+}
+
+variable "kubernetes_version" {
+  description = "Version of Kubernetes to deploy"
+  type        = string
+  default     = "1.30.7"
+}
+
 variable "agent_count" {
   description = "Number of worker nodes in the Kubernetes cluster"
   type        = number
   default     = 2
+}
+
+variable "vm_size" {
+  description = "VM size for Kubernetes worker nodes in the default node pool"
+  type        = string
+  default     = "Standard_DS2_v2"
 }
 
 variable "virtual_network_name" {
@@ -26,12 +50,6 @@ variable "virtual_network_address_space" {
   description = "Address space for the Azure Virtual Network"
   type        = string
   default     = "10.0.0.0/16"
-}
-
-variable "vm_size" {
-  description = "VM size for Kubernetes worker nodes in the default node pool"
-  type        = string
-  default     = "Standard_DS2_v2"
 }
 
 variable "subnet_name" {
@@ -52,23 +70,7 @@ variable "network_security_group_name" {
   default     = "nsg-ada-myk"
 }
 
-variable "aks_cluster_name" {
-  description = "Name of the Azure Kubernetes Service (AKS) cluster"
-  type        = string
-  default     = "aks-ada-myk"
-}
 
-variable "dns_prefix" {
-  description = "DNS prefix for the Kubernetes cluster"
-  type        = string
-  default     = "k8s"
-}
-
-variable "kubernetes_version" {
-  description = "Version of Kubernetes to deploy"
-  type        = string
-  default     = "1.30.7"
-}
 
 variable "key_vault_name" {
   description = "Name of the Azure Key Vault"
