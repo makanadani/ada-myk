@@ -1,10 +1,10 @@
 resource "azurerm_kubernetes_cluster" "k8s" {
-  name                    = "aks-projetoada-myk"
+  name                    = var.aks_cluster_name
   location                = azurerm_resource_group.environment_rg.location
   resource_group_name     = azurerm_resource_group.environment_rg.name
-  dns_prefix              = "k8s"
+  dns_prefix              = var.dns_prefix
   private_cluster_enabled = false
-  kubernetes_version      = "1.30.7"
+  kubernetes_version      = var.kubernetes_version
 
   role_based_access_control_enabled = true
 

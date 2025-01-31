@@ -1,26 +1,24 @@
 resource "azurerm_virtual_network" "virtual_network" {
-  name                = "vnet-projetoada-myk"
+  name                = var.virtual_network_name
   location            = azurerm_resource_group.environment_rg.location
   resource_group_name = azurerm_resource_group.environment_rg.name
-  address_space       = ["${var.virtual_network}"]
+  address_space       = [var.virtual_network_address_space]
 }
 
 resource "azurerm_subnet" "cluster_resources" {
-  name                 = "cr-projetoada-myk"
+  name                 = var.subnet_name
   virtual_network_name = azurerm_virtual_network.virtual_network.name
   resource_group_name  = azurerm_resource_group.environment_rg.name
-  address_prefixes     = ["${var.subnet_network}"]
-
-  depends_on = [ azurerm_virtual_network.virtual_network ]
+  address_prefixes     = [var.subnet_address_prefixes]
 }
 
 resource "azurerm_network_security_group" "network_security_group" {
-  name                = "nsg-projetoada-myk"
+  name                = var.network_security_group_name
   location            = azurerm_resource_group.environment_rg.location
   resource_group_name = azurerm_resource_group.environment_rg.name
 
   security_rule {
-    name                       = "HTTPS"
+    name                       = "Allow-HTTPS"
     priority                   = 1002
     direction                  = "Inbound"
     access                     = "Allow"
@@ -30,7 +28,6 @@ resource "azurerm_network_security_group" "network_security_group" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
-
 }
 
 resource "azurerm_subnet_network_security_group_association" "subnet_network_security_group_association" {

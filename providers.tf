@@ -1,16 +1,17 @@
-# 1. Specify the version of the AzureRM Provider to use
 terraform {
+  required_version = ">=1.3.0"
+
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
-      version = "4.16.0"
+      source  = "hashicorp/azurerm"
+      version = ">=3.0"
     }
   }
 }
 
-provider "azurerm" { 
-  subscription_id = "190ce8be-6d75-4b0f-8a37-d2d821e9c662"
-  features {    
+provider "azurerm" {
+  subscription_id = var.subscription_id
+  features {
     key_vault {
       purge_soft_delete_on_destroy    = true
       recover_soft_deleted_key_vaults = true
