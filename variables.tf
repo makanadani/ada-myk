@@ -85,7 +85,7 @@ variable "soft_delete_retention_days" {
 variable "subscription_id" {
   description = "Azure Subscription ID"
   type        = string
-  default     = "Azure subscription 1"
+  default     = "59890415-2a07-415b-bf3f-a9d3a12caa38"
 }
 
 variable "sql_server_name" {
