@@ -97,3 +97,14 @@ terraform init
 terraform validate
 terraform plan -out=tfplan
 terraform apply "tfplan"
+find /home/marina -maxdepth 1 -type f -exec cp -f {} /home/marina/ada-myk/ \;
+git add .
+git commit -m "Update README"
+git push origin main
+curl -k https://k8s-b2yrkqnf.hcp.brazilsouth.azmk8s.io:443
+az aks get-credentials --resource-group rg-ada-myk --name aks-ada-myk --overwrite-existing
+curl https://<kubernetes-api-server>:6443 --cert ~/.minikube/apiserver.crt --key ~/.minikube/apiserver.key --cacert ~/.minikube/ca.crt
+netstat -tuln | grep 8080
+ss -tuln | grep 8080
+fuser 8080/tcp
+sudo apt-get update
