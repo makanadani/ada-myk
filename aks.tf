@@ -18,4 +18,11 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   }
 
   identity { type = "SystemAssigned" }
+
+  network_profile {
+    network_plugin     = "azure"
+    network_policy     = "azure"
+    service_cidr       = "10.2.0.0/16"
+    dns_service_ip     = "10.2.0.10"
+  }
 }
