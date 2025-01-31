@@ -2,6 +2,11 @@ resource "kubernetes_deployment" "ada_myk" {
   metadata {
     name      = "ada-myk"
     namespace = "default"
+
+    annotations = {
+      "azure.workload.identity/use" = "true"
+    }
+
     labels = {
       app = "ada-myk"
     }
@@ -16,19 +21,14 @@ resource "kubernetes_deployment" "ada_myk" {
       }
     }
 
-    strategy {
-      type = "RollingUpdate"
-      rolling_update {
-        max_surge       = 1
-        max_unavailable = 1
-      }
-    }
-
     template {
       metadata {
         labels = {
           app = "ada-myk"
-          azure.workload.identity/use = "true"
+        }
+
+        annotations = {
+          "azure.workload.identity/use" = "true"
         }
       }
 
@@ -41,16 +41,6 @@ resource "kubernetes_deployment" "ada_myk" {
 
           port {
             container_port = 8080
-          }
-
-          env {
-            name = "SPD_KEY_VAULT_URI"
-            value_from {
-              secret_key_ref {
-                name = kubernetes_secret.keyvault_secret.metadata[0].name
-                key  = "SPD_KEY_VAULT_URI"
-              }
-            }
           }
         }
       }
