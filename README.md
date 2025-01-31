@@ -47,13 +47,13 @@ terraform init
 ### 1.2 **Visualizar o Plano de Execução**
 Para visualizar as mudanças antes de aplicá-las:
 ```sh
-terraform plan
+terraform plan -out=tfplan
 ```
 
 ### 1.3 **Aplicar as Configurações**
 Execute o seguinte comando para provisionar toda a infraestrutura:
 ```sh
-terraform apply -auto-approve
+terraform apply -auto-approve "tfplan"
 ```
 
 ---
