@@ -29,4 +29,5 @@ resource "azurerm_kubernetes_cluster" "k8s" {
 resource "kubernetes_namespace" "app_namespace" {
   metadata {
     name = var.kubernetes_namespace
+  }
 }
