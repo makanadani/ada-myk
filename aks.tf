@@ -25,3 +25,8 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     dns_service_ip     = "10.2.0.10"
   }
 }
+
+resource "kubernetes_namespace" "app_namespace" {
+  metadata {
+    name = var.kubernetes_namespace
+}

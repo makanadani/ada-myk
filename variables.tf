@@ -28,6 +28,12 @@ variable "kubernetes_version" {
   default     = "1.30.7"
 }
 
+variable "kubernetes_namespace" {
+  description = "Namespace of the application"
+  type        = string
+  default     = "ada-myk-namespace"
+}
+
 variable "agent_count" {
   description = "Number of worker nodes in the Kubernetes cluster"
   type        = number
@@ -69,8 +75,6 @@ variable "network_security_group_name" {
   type        = string
   default     = "nsg-ada-myk"
 }
-
-
 
 variable "key_vault_name" {
   description = "Name of the Azure Key Vault"
