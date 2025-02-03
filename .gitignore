@@ -160,9 +160,12 @@ terraform.exe
 .azure/
 .kube/
 .terraform.d/
+.bashrc
 .bash_*
 .gitconfig
-.terraform.lock.hcl
+.local
+.terraform
+.terraform.*
 .tmux.conf
 .viminfo
 .zshrc
