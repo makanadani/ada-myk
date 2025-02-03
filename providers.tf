@@ -1,10 +1,12 @@
 terraform {
-  required_version = ">=1.3.0"
-
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = ">=3.0"
+      version = "~> 3.0"
+    }
+    http = {
+      source  = "hashicorp/http"
+      version = "~> 2.0"
     }
   }
 }
@@ -26,6 +28,4 @@ provider "kubernetes" {
   cluster_ca_certificate = base64decode(azurerm_kubernetes_cluster.k8s.kube_config[0].cluster_ca_certificate)
 }
 
-provider "http" {
-  version = "~> 2.0"
-}
+provider "http" {}
