@@ -1,15 +1,7 @@
-resource "kubernetes_deployment" "ada_myk" {
+resource "kubernetes_deployment" "ada_myk_deployment" {
   metadata {
-    name      = "ada-myk"
-    namespace = "default"
-
-    annotations = {
-      "azure.workload.identity/use" = "true"
-    }
-
-    labels = {
-      app = "ada-myk"
-    }
+    name      = "ada-myk-deployment"
+    namespace = var.kubernetes_namespace
   }
 
   spec {
@@ -26,21 +18,32 @@ resource "kubernetes_deployment" "ada_myk" {
         labels = {
           app = "ada-myk"
         }
-
-        annotations = {
-          "azure.workload.identity/use" = "true"
-        }
       }
 
       spec {
-        service_account_name = "ada-myk-sa"
-
         container {
-          name  = "ada-myk"
+          name  = "ada-myk-container"
           image = "schwendler/embarque-ti-spd-project"
-
-          port {
+          ports {
             container_port = 8080
+          }
+          env {
+            name = "SPD_KEY_VAULT_URI"
+            value_from {
+              secret_key_ref {
+                name = "keyvault-secret"
+                key  = "SPD_KEY_VAULT_URI"
+              }
+            }
+          }
+          env {
+            name = "DB_CONNECTION_STRING"
+            value_from {
+              secret_key_ref {
+                name = "db-connection-string"
+                key  = "connection-string"
+              }
+            }
           }
         }
       }

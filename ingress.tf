@@ -1,7 +1,7 @@
 resource "kubernetes_ingress_v1" "ada_myk_ingress" {
   metadata {
     name      = "ada-myk-ingress"
-    namespace = "default"
+    namespace = var.kubernetes_namespace
 
     annotations = {
       "kubernetes.io/ingress.class" = "webapprouting.kubernetes.azure.com"

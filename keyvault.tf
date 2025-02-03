@@ -28,3 +28,22 @@ resource "azurerm_key_vault" "keyvault" {
     ]
   }
 }
+
+resource "azurerm_key_vault_secret" "db_connection_string" {
+  name         = "db-connection-string"
+  value        = "Server=tcp:${azurerm_mssql_server.sql_server.fully_qualified_domain_name},1433;Initial Catalog=${azurerm_mssql_database.sql_database.name};Persist Security Info=False;User ID=${var.sql_admin_username};Password=${var.sql_admin_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+  key_vault_id = azurerm_key_vault.keyvault.id
+}
+
+resource "kubernetes_secret" "keyvault_secret" {
+  metadata {
+    name      = "keyvault-secret"
+    namespace = var.kubernetes_namespace
+  }
+
+  data = {
+    SPD_KEY_VAULT_URI = azurerm_key_vault.keyvault.vault_uri
+  }
+
+  type = "Opaque"
+}

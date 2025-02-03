@@ -6,7 +6,7 @@ resource "azurerm_mssql_server" "sql_server" {
   administrator_login          = var.sql_admin_username
   administrator_login_password = var.sql_admin_password
 
-  depends_on = [ var.resource_group_name ]
+  depends_on = [azurerm_resource_group.environment_rg]
 }
 
 resource "azurerm_mssql_database" "sql_database" {

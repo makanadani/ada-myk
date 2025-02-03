@@ -1,10 +1,7 @@
 resource "kubernetes_service" "ada_myk_service" {
   metadata {
     name      = "ada-myk-service"
-    namespace = "default"
-    labels = {
-      app = "ada-myk"
-    }
+    namespace = var.kubernetes_namespace
   }
 
   spec {
@@ -17,7 +14,5 @@ resource "kubernetes_service" "ada_myk_service" {
       port        = 80
       target_port = 8080
     }
-
-    type = "LoadBalancer"
   }
 }

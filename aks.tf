@@ -5,8 +5,6 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   dns_prefix              = var.dns_prefix
   kubernetes_version      = var.kubernetes_version
 
-  role_based_access_control_enabled = true
-
   default_node_pool {
     name            = "agentpool"
     node_count      = var.agent_count
