@@ -20,7 +20,7 @@ resource "azurerm_key_vault" "keyvault" {
     ]
 
     secret_permissions = [
-      "Get", "List", "Set", "Delete"
+      "Get", "List", "Set", "Delete", "Recover"
     ]
 
     storage_permissions = [

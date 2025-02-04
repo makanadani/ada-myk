@@ -11,7 +11,7 @@ resource "kubernetes_service" "ada_myk_service" {
 
     port {
       protocol    = "TCP"
-      port        = 80
+      port        = 8080
       target_port = 8080
     }
   }

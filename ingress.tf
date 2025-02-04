@@ -1,10 +1,10 @@
-resource "kubernetes_ingress" "ada_myk_ingress" {
+resource "kubernetes_ingress_v1" "ada_myk_ingress" {
   metadata {
     name      = "ada-myk-ingress"
     namespace = var.kubernetes_namespace
 
     annotations = {
-      "kubernetes.io/ingress.class" = "webapprouting.kubernetes.azure.com"
+      "kubernetes.io/ingress.class" = "nginx"
     }
   }
 
@@ -14,10 +14,16 @@ resource "kubernetes_ingress" "ada_myk_ingress" {
 
       http {
         path {
-          path = "/"
+          path     = "/"
+          path_type = "Prefix"
+
           backend {
-            service_name = kubernetes_service.ada_myk_service.metadata[0].name
-            service_port = 8080
+            service {
+              name = kubernetes_service.ada_myk_service.metadata[0].name
+              port {
+                number = 8080
+              }
+            }
           }
         }
       }
