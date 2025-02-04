@@ -24,7 +24,7 @@ resource "kubernetes_deployment" "ada_myk_deployment" {
         container {
           name  = "ada-myk-container"
           image = "schwendler/embarque-ti-spd-project"
-          port {
+          ports {
             container_port = 8080
           }
           env {

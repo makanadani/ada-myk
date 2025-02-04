@@ -3,7 +3,7 @@ data "http" "my_ip" {
 }
 
 locals {
-  my_ip = jsondecode(data.http.my_ip.response_body).ip
+  my_ip = jsondecode(data.http.my_ip.body).ip
 }
 
 resource "azurerm_mssql_firewall_rule" "allow_client_ip" {

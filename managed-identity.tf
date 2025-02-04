@@ -3,13 +3,11 @@ resource "azurerm_user_assigned_identity" "aks_identity" {
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
 
-  depends_on = [azurerm_resource_group.environment_rg ]
+  depends_on = [azurerm_resource_group.environment_rg]
 }
 
-resource "azurerm_role_assignment" "keyvault_access" {
+resource "azurerm_role_assignment" "aks_keyvault_access" {
   scope                = azurerm_key_vault.keyvault.id
-  role_definition_name = "Reader"
-  principal_id         = azurerm_user_assigned_identity.aks_identity.principal_id
-
-    depends_on = [azurerm_user_assigned_identity.aks_identity]
+  role_definition_name = "Key Vault Secrets User"
+  principal_id         = azurerm_kubernetes_cluster.k8s.identity[0].principal_id
 }
