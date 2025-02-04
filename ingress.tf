@@ -17,7 +17,7 @@ resource "kubernetes_ingress" "ada_myk_ingress" {
           path = "/"
           backend {
             service_name = kubernetes_service.ada_myk_service.metadata[0].name
-            service_port = 80
+            service_port = 8080
           }
         }
       }
