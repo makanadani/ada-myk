@@ -169,3 +169,4 @@ terraform.exe
 .tmux.conf
 .viminfo
 .zshrc
+terraform.tfvars

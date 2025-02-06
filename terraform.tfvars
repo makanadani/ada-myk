@@ -1,3 +1,4 @@
+# Permite definição das diversas variáveis sem precisar alterar a infraestrutura.
 resource_group_name         = "rg-ada-myk"
 resource_group_location     = "Brazil South"
 subscription_id             = "59890415-2a07-415b-bf3f-a9d3a12caa38"

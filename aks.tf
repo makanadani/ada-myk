@@ -1,3 +1,4 @@
+# Provisiona o cluster **Azure Kubernetes Service (AKS)**, incluindo **namespace** dedicado à aplicação.
 resource "azurerm_kubernetes_cluster" "k8s" {
   name                    = var.aks_cluster_name
   location                = azurerm_resource_group.environment_rg.location

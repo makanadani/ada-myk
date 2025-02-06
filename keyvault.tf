@@ -1,3 +1,4 @@
+# Provisiona o Azure Key Vault para armazenar segredos de forma segura.
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "keyvault" {

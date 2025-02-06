@@ -1,3 +1,4 @@
+# Cria um Secret no Kubernetes.
 resource "kubernetes_secret" "db_secret" {
   metadata {
     name      = "db-connection-string"

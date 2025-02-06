@@ -1,3 +1,4 @@
+# Define o Service no Kubernetes para expor a aplicação internamente.
 resource "kubernetes_service" "ada_myk_service" {
   metadata {
     name      = "ada-myk-service"

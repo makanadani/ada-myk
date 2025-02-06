@@ -25,13 +25,13 @@ A infraestrutura está organizada em diversos arquivos visando implementação v
 - `providers.tf`: Configura os **provedores** Terraform.
 - `service-account.tf`: Cria uma **Service Account** para autenticação no Kubernetes.
 - `service.tf`: Define o **Service** no Kubernetes para expor a aplicação internamente.
+- `terraform.tfvars`: Permite definição das diversas variáveis com valores sensíveis.
 - `variables.tf`: Define variáveis reutilizáveis no Terraform. 
 
 2. **Azure Key Vault**
 - `keyvault.tf`: Provisiona o **Azure Key Vault** para armazenar segredos de forma segura.
-- `keyvault-secret.tf`: Adiciona **secrets** no **Key Vault**.
 - `managed-identity.tf`: Cria uma **Managed Identity** para a aplicação acessar recursos sem credenciais explícitas, incluindo permissões necessárias para acesso aos recursos.
-- `secrets.auto.tfvars`: Armazena valores sensíveis como senhas e segredos.
+- `secrets.tf`: Cria um **Secret** no Kubernetes.
 
 3. **Banco de Dados**
 - `database.tf`: Cria o **Azure SQL Server** e o **banco de dados**.

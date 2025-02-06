@@ -1,3 +1,4 @@
+# Cria uma Managed Identity para a aplicação acessar recursos sem credenciais explícitas, incluindo permissões necessárias para acesso aos recursos.
 resource "azurerm_user_assigned_identity" "aks_identity" {
   name                = "aks-workload-identity"
   location            = var.resource_group_location

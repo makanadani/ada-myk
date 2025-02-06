@@ -1,3 +1,4 @@
+# Define parâmtros para o firewall e detecta o IP do usuário automaticamente.
 data "http" "my_ip" {
   url = "https://api.ipify.org?format=json"
 }

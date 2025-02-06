@@ -1,3 +1,7 @@
+
+# Professor, sei que o problema deve ser aqui, mas não consegui resolver. Não sei como fazer a aplicação rodar na porta 8080.
+
+# Define os dados do ingress
 resource "kubernetes_ingress_v1" "ada_myk_ingress" {
   metadata {
     name      = "ada-myk-ingress"

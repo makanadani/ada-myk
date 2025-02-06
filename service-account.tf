@@ -1,3 +1,4 @@
+# Cria uma Service Account para autenticação no Kubernetes.
 resource "kubernetes_service_account" "ada_myk_sa" {
   metadata {
     name      = "ada-myk-sa"

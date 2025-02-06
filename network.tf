@@ -1,3 +1,4 @@
+# Define a Virtual Network (VNet) e Subnet.
 resource "azurerm_virtual_network" "virtual_network" {
   name                = var.virtual_network_name
   location            = azurerm_resource_group.environment_rg.location

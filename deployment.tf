@@ -1,3 +1,5 @@
+# Define o deploy da aplicação no Kubernetes.
+
 resource "kubernetes_deployment" "ada_myk_deployment" {
   metadata {
     name      = "ada-myk-deployment"
