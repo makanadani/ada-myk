@@ -1,8 +1,8 @@
 # Permite definição das diversas variáveis sem precisar alterar a infraestrutura.
 resource_group_name         = "rg-ada-myk"
 resource_group_location     = "Brazil South"
-subscription_id             = "59890415-2a07-415b-bf3f-a9d3a12caa38"
-sql_admin_password          = "Ad@Proj2025"
+subscription_id             = "YOUR_SUBSCRIPTION_ID"
+sql_admin_password          = "YOUR_PASSWORD"
 aks_cluster_name            = "aks-ada-myk"
 dns_prefix                  = "k8s"
 kubernetes_version          = "1.30.7"
