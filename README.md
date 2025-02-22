@@ -93,7 +93,7 @@ kubectl logs <pod-name> -n ada-myk-namespace
 ### 3. Validação da aplicação
 A aplicação estará acessível em:
 ```
-http://myk.com
+http://myk.com:8080
 ```
 
 ### Licenciamento
